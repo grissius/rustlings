@@ -1,9 +1,14 @@
 // iterators4.rs
 // Execute `rustlings hint iterators4` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
+use std::iter::successors;
 
-pub fn factorial(num: u64) -> u64 {
+pub fn factorial(mut num: u64) -> u64 {
+    // match num {
+    //     0 => 1,
+    //     _ => num * factorial(num - 1)
+    // }
+    successors(Some((1, 1)), |(n, i)| Some((n * i, i + 1))).nth(num as usize).unwrap().0
     // Complete this function to return the factorial of num
     // Do not use:
     // - return
